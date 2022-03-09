@@ -1,24 +1,5 @@
 steps:
-  # deploy Sonarcube image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: 
-      - 'build'
-      - '--build-arg'
-      - 'SONARQUBE_SCANNER_CLI_VERSION=4.6.0.2311'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
-      - '.'
-  # Run Sonarcube image
-  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-    args:
-      - '-Dsonar.host.url=https://sonarcloud.io'
-      - '-Dsonar.login=f954b1d053d5f4f5880015c85f151a0b22d6dd60'
-      - '-Dsonar.projectKey=23f2db65b126a9d33dcd99f0084e551fb89d50ba'
-      - '-Dsonar.organization=eswar193'
-      - '-Dsonar.sources=.'
-  # pull the container image if it is already built
+  # Pull the container image if it is already built
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
@@ -53,3 +34,22 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
+  # deploy Sonarcube image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - 'build'
+      - '--build-arg'
+      - 'SONARQUBE_SCANNER_CLI_VERSION=4.6.0.2311'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
+      - '.'
+  # Run Sonarcube image
+  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+    args:
+      - '-Dsonar.host.url=https://sonarcloud.io'
+      - '-Dsonar.login=f954b1d053d5f4f5880015c85f151a0b22d6dd60'
+      - '-Dsonar.projectKey=23f2db65b126a9d33dcd99f0084e551fb89d50ba'
+      - '-Dsonar.organization=eswar193'
+      - '-Dsonar.sources=.'
