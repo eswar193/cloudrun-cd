@@ -40,6 +40,4 @@ COPY launch.sh /
 
 WORKDIR ${SONARQUBE_SCANNER_HOME}
 
-EXPOSE 9090
-
-ENTRYPOINT ["/launch.sh"]
+ENTRYPOINT ["launch.sh"]
