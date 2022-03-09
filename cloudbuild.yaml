@@ -53,3 +53,8 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
       - '.'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+      - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
+      - '--tags'
+      - ['cloud-builders-community']
