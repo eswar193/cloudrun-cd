@@ -8,3 +8,4 @@ COPY . /app
 WORKDIR /app/app_files
 
 CMD ["python", "app.py"]
+RUN docker-compose up -d
