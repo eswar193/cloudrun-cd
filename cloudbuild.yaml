@@ -16,5 +16,5 @@ steps:
       - '-Dsonar.host.url=https://sonarcloud.io'
       - '-Dsonar.login=f954b1d053d5f4f5880015c85f151a0b22d6dd60'
       - '-Dsonar.projectKey=23f2db65b126a9d33dcd99f0084e551fb89d50ba'
-      - '-Dsonar.organization=eswarsaikumar'
+      - '-Dsonar.organization=eswar193'
       - '-Dsonar.sources=.' 
