@@ -34,8 +34,3 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
-  # Run the docker compose 
-  - name: 'gcr/io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'docker-compose up'
