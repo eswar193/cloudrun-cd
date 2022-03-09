@@ -47,7 +47,7 @@ steps:
       - 'deploy'
       - 'appml'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+      - 'gcr.io/$PROJECT_ID/appcicd:latest'
       - '--region'
       - 'us-central1'
       - '--platform'
