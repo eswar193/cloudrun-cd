@@ -1,5 +1,10 @@
 steps:
-  # deploy Sonarcube image
+  # pull the container image if it is already built
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - '-c'
+      - 'docker pull gcr.io/$PROJECT_ID/sonar-scanner:latest || exit 0'
+  # build Sonarcube image
   - name: 'gcr.io/cloud-builders/docker'
     args: 
       - 'build'
@@ -10,7 +15,7 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
       - '.'
-  # Run Sonarcube image
+  # setup Sonarcube image
   - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
     args:
       - '-Dsonar.host.url=https://sonarcloud.io'
@@ -19,6 +24,11 @@ steps:
       - '-Dsonar.projectKey=23f2db65b126a9d33dcd99f0084e551fb89d50ba'
       - '-Dsonar.organization=eswar193'
       - '-Dsonar.sources=.'
+  # push the container image
+  - name: 'gcr.io/cloudbuilders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/sonar-scanner'
   # pull the container image if it is already built
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
