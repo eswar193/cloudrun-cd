@@ -1,4 +1,4 @@
-teps:
+steps:
   # pull the container image if it is already built
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
