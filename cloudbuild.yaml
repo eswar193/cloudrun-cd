@@ -19,6 +19,12 @@ steps:
       - '-Dsonar.projectKey=23f2db65b126a9d33dcd99f0084e551fb89d50ba'
       - '-Dsonar.organization=eswar193'
       - '-Dsonar.sources=.'
+  # pull th container image
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'docker pull gcr.io/$PROJECT_ID/sonar-scanner:latest'
   # push the container image
   - name: 'gcr.io/cloudbuilders/docker'
     args:
