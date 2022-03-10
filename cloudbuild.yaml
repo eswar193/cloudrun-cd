@@ -1,9 +1,4 @@
 steps:
-  # pull the container image if it is already built
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - '-c'
-      - 'docker pull gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
   # build Sonarcube image
   - name: 'gcr.io/cloud-builders/docker'
     args: 
